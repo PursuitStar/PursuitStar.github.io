@@ -1,0 +1,187 @@
+/*公共样式*/
+*{
+    padding: 0;
+    margin: 0;
+}
+.fr{
+    float: right;
+}
+.fl{
+    float: left;
+}
+ul{
+    list-style: none;
+}
+.cl{
+    width: 100%;
+    clear: both;
+}
+/************************/
+.logo{
+    width: 300px;
+    height: 90px;
+    margin-top: 30px;
+    margin-left: 20%;
+}
+.hr{
+    width: 100%;
+    height: 3px;
+    background-color: #62ab2e;
+}
+.conter{
+    margin-left: 20%;
+    margin-top: 56px;
+    height: 374px;
+    padding-bottom: 60px;
+}
+/*注册界面*/
+.register {
+    width: 601px;
+    border-right: 1px solid #eeeeee;
+}
+.register .form{
+    margin-left: 40px;
+}
+.register .form .mail{
+    width: 270px;
+}
+.register .form .user{
+    width: 138px;
+}
+.register .form .password{
+     width: 220px;
+}
+.register .form .repassword{
+    width: 220px;
+}
+.register .form .code{
+    width: 90px;
+}
+.register .form .c{
+    height: 50px;
+    width: 240px;
+    position: relative;
+    left: 180px;
+    top: -40px;
+}
+.register .form .c img{
+     position: absolute;
+     top: 2px;
+ }
+.register .form .c a{
+    color: #61ab2d;
+    font-size: 12px;
+    position: absolute;
+    top:16px;
+    left: 120px;
+}
+.register .form p {
+    height: 26px;
+    line-height: 26px;
+    padding-left: 86px;
+    color: #b6b6b6;
+    font-size: 12px;
+
+}
+.btn{
+    outline-style: none;
+    width: 118px;
+    height: 32px;
+    line-height: 32px;
+    font-size: 14px;
+    color: white;
+    border: none;
+    background:url("../image/regimg/btn.gif") no-repeat;
+    position: relative;
+    left: 80px;
+}
+.register input{
+
+    outline-style: none;
+    margin-left: 20px;
+    height: 28px;
+    border: 1px solid #bdbdbd;
+}
+
+/*登录*/
+.login {
+    float: left;
+    padding-left: 50px;
+    font-family: Arial;
+}
+.login p{
+    margin-bottom: 12px;
+}
+.login .btn2{
+    margin-left: 20px;
+    width: 58px;
+    height: 28px;
+    line-height: 28px;
+    border: none;
+    outline-style: none;
+    color: #569c34;
+    background: url("../image/regimg/reg0108.gif") no-repeat;
+}
+.login span{
+    font-size: 12px;
+}
+.login .lis{
+    margin-top: 40px;
+}
+.login ul li{
+   padding-left: 20px;
+    margin-top: 15px;
+    height: 16px;
+    line-height: 16px;
+}
+.login ul li a{
+    text-decoration: none;
+    color:#333;
+    font-size: 12px;
+}
+.login ul .xl{
+    background: url("../image/regimg/ico0108.png") no-repeat;
+}
+.login ul .qq{
+    background: url("../image/regimg/ico0108.png") no-repeat 0 -104px;
+}
+.login ul .rr{
+    background: url("../image/regimg/ico0108.png") no-repeat 0 -52px;
+}
+.login ul .kx{
+    background: url("../image/regimg/ico0108.png") no-repeat 0 -78px;
+}
+.login ul .db{
+    background: url("../image/regimg/ico0108.png") no-repeat 0 -156px;
+}
+.login ul .zf{
+    background: url("../image/regimg/ico0108.png") no-repeat 0 -182px;
+}
+/*footer开始*/
+.footer {
+    width: 960px;
+    margin: 20px auto;
+
+}
+.footer .footer_content{
+    text-align: center;
+    line-height: 22px;
+    font-family: "宋体";
+    color: #666;
+    font-size: 12px;
+}
+.footer .footer_content a{
+    display: inline-block;
+    color:#666;
+    text-decoration: none;
+    font-size: 12px;
+    margin: 0 3px;
+}
+.footer .footer_content a:hover{
+    text-decoration: underline;
+    color: #028102;
+
+}
+.footer .footer_content span{
+    font-family: Arial, Helvetica, sans-serif;
+}

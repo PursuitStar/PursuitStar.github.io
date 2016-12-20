@@ -1,0 +1,192 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.logo{
+    width: 300px;
+    height: 90px;
+    margin-top: 30px;
+    margin-left: 20%;
+}
+/*登录界面开始*/
+.login_content {
+    width: 960px;
+    height: 470px;
+    margin: 0 auto;
+}
+.login_content .bg{
+    width: 578px;
+    height: 400px;
+    float: left;
+    background: url("../image/regimg/logo_content_bg.jpg") no-repeat;
+}
+.login_content .loginbtn{
+    float: left;
+    width: 360px;
+    height: 386px;
+    display: inline;
+    margin: 44px 0 0 0;
+    /*overflow: hidden;*/
+    border: 1px solid #bdbdbd;
+    border-radius: 5px;
+}
+.login_content .loginbtn .loginSur {
+    width: 328px;
+    margin: 0 16px;
+    border-bottom: 1px solid #e8e8e8;
+    border-top: 1px solid #e8e8e8;
+    padding: 26px 0;
+    font-family: Tahoma;
+}
+.login_content .loginbtn h2{
+    height: 52px;
+    line-height: 52px;
+    text-indent: 24px;
+    color: #343434;
+    font-size: 14px;
+}
+.login_content .loginbtn .loginSur input{
+    width: 220px;
+    height: 26px;
+    line-height: 26px;
+    borber:1px solid #bdbdbd;
+    outline-style: none;
+    font-size: 14px;
+    padding-left: 4px;
+}
+.login_content .loginbtn .loginSur label{
+    display: inline-block;
+    width: 64px;
+    color: #333;
+    font-size: 14px;
+    padding-left: 12px;
+}
+.btn {
+    width: 88px;
+    height: 32px;
+    background: url("../image/regimg/log_btn0108.png") no-repeat;
+    border: none;
+    outline-style: none;
+    color: #fff;
+}
+.submit {
+    padding-left: 76px;
+}
+.submit a{
+    text-decoration: none;
+    color:#999;
+    margin-left: 82px;
+    font-size: 12px;
+}
+.submit a:hover{
+    color:red;
+}
+.login_content .loginbtn .loginSur .other{
+    width: 328px;
+    padding-top: 36px;
+    padding-left: 12px;
+}
+.login_content .loginbtn .loginSur p{
+    height: 26px;
+    line-height: 26px;
+}
+
+.login_content .loginbtn .loginSur .other .otherh2{
+    padding-left: 0px;
+    font-size: 14px;
+    height: 18px;
+    line-height: 18px;
+    background: url("../image/regimg/other_bg.gif") no-repeat 12px center;
+}
+.login_content .loginbtn .loginSur .other .ico{
+    margin-top: 14px;
+    padding-left: 8px;
+    width: 328px;
+    height: 16px;
+}
+.login_content .loginbtn .loginSur .other .ico .xl{
+    display: inline-block;
+    margin-right: 10px;
+    width: 16px;
+    height: 16px;
+    background: url("../image/regimg/ico0108.png") no-repeat;
+ }
+.login_content .loginbtn .loginSur .other .ico .qq{
+    display: inline-block;
+    margin-right: 10px;
+    width: 16px;
+    height: 16px;
+    background: url("../image/regimg/ico0108.png") no-repeat  0 -104px;
+}
+.login_content .loginbtn .loginSur .other .ico .rr{
+    display: inline-block;
+    margin-right: 10px;
+    width: 16px;
+    height: 16px;
+    background: url("../image/regimg/ico0108.png") no-repeat 0 -52px;
+}
+.login_content .loginbtn .loginSur .other .ico .kx{
+    display: inline-block;
+    margin-right: 10px;
+    width: 16px;
+    height: 16px;
+    background: url("../image/regimg/ico0108.png") no-repeat 0 -78px;
+}
+.login_content .loginbtn .loginSur .other .ico .db{
+    display: inline-block;
+    margin-right: 10px;
+    width: 16px;
+    height: 16px;
+    background: url("../image/regimg/ico0108.png") no-repeat 0 -156px;
+}.login_content .loginbtn .loginSur .other .ico .zf{
+     display: inline-block;
+     margin-right: 10px;
+     width: 16px;
+     height: 16px;
+     background: url("../image/regimg/ico0108.png") no-repeat 0 -182px;
+ }
+ .newU {
+     width: 360px;
+     height: 56px;
+     line-height: 56px;
+     text-align: center;
+ }
+.newU a{
+    font-size: 14px;
+    color: #3d8e23;
+    text-decoration: none;
+    font-family: "宋体";
+}
+/*登录界面结束*/
+/*页面底部开始*/
+
+.footer {
+    width: 960px;
+    margin: 20px auto;
+
+}
+.footer .footer_content{
+    text-align: center;
+    line-height: 22px;
+    font-family: "宋体";
+    color: #666;
+    font-size: 12px;
+}
+.footer .footer_content a{
+    display: inline-block;
+    color:#666;
+    text-decoration: none;
+    font-size: 12px;
+    margin: 0 3px;
+}
+.footer .footer_content a:hover{
+    text-decoration: underline;
+    color: #028102;
+
+}
+.footer .footer_content span{
+    font-family: Arial, Helvetica, sans-serif;
+}
+/*页面底部结束*/
+

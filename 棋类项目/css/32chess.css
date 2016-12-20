@@ -1,0 +1,163 @@
+@charset "UTF-8";
+.chess_home .red_home .red_bow1 {
+    position: absolute;
+    left: 988px;
+    top: 54px;
+}
+.chess_home .red_home .red_bow2 {
+    position: absolute;
+    left: 1040px;
+    top: 54px;
+}
+.chess_home .red_home .red_bow3 {
+    position: absolute;
+    left: 1092px;
+    top: 54px;
+}
+.chess_home .red_home .red_bow4 {
+    position: absolute;
+    left: 1144px;
+    top: 54px;
+}
+.chess_home .red_home .red_bow5 {
+    position: absolute;
+    left: 988px;
+    top: 106px;
+}
+.chess_home .red_home .red_horse1 {
+    position: absolute;
+    left: 1040px;
+    top: 106px;
+}
+.chess_home .red_home .red_horse2 {
+    position: absolute;
+    left: 1092px;
+    top: 106px;
+}
+.chess_home .red_home .red_horse3 {
+    position: absolute;
+    left: 1144px;
+    top: 106px;
+}
+.chess_home .red_home .red_horse4 {
+    position: absolute;
+    left: 988px;
+    top: 158px;
+}
+.chess_home .red_home .red_horse5 {
+    position: absolute;
+    left: 1040px;
+    top: 158px;
+}
+.chess_home .red_home .red_foot1 {
+    position: absolute;
+    left: 1092px;
+    top: 158px;
+}
+.chess_home .red_home .red_foot2 {
+    position: absolute;
+    left: 1144px;
+    top: 158px;
+}
+.chess_home .red_home .red_foot3 {
+    position: absolute;
+    left: 988px;
+    top: 210px;
+}
+.chess_home .red_home .red_foot4 {
+    position: absolute;
+    left: 1040px;
+    top: 210px;
+}
+.chess_home .red_home .red_foot5 {
+    position: absolute;
+    left: 1092px;
+    top: 210px;
+}
+.chess_home .red_home .red_general{
+    position: absolute;
+    left: 1144px;
+    top: 210px;
+}
+
+/*蓝色部分棋子开始*/
+.chess_home .blue_home .blue_bow1 {
+    position: absolute;
+    left: 988px;
+    top: 296px;
+}
+.chess_home .blue_home .blue_bow2 {
+    position: absolute;
+    left: 1040px;
+    top: 296px;
+}
+.chess_home .blue_home .blue_bow3 {
+    position: absolute;
+    left: 1092px;
+    top: 296px;
+}
+.chess_home .blue_home .blue_bow4 {
+    position: absolute;
+    left: 1144px;
+    top: 296px;
+}
+.chess_home .blue_home .blue_bow5 {
+    position: absolute;
+    left: 988px;
+    top: 348px;
+}
+.chess_home .blue_home .blue_horse1 {
+    position: absolute;
+    left: 1040px;
+    top: 348px;
+}
+.chess_home .blue_home .blue_horse2 {
+    position: absolute;
+    left: 1092px;
+    top: 348px;
+}
+.chess_home .blue_home .blue_horse3 {
+    position: absolute;
+    left: 1144px;
+    top: 348px;
+}
+.chess_home .blue_home .blue_horse4 {
+    position: absolute;
+    left: 988px;
+    top: 400px;
+}
+.chess_home .blue_home .blue_horse5 {
+    position: absolute;
+    left: 1040px;
+    top: 400px;
+}
+.chess_home .blue_home .blue_foot1 {
+    position: absolute;
+    left: 1092px;
+    top: 400px;
+}
+.chess_home .blue_home .blue_foot2 {
+    position: absolute;
+    left: 1144px;
+    top: 400px;
+}
+.chess_home .blue_home .blue_foot3 {
+    position: absolute;
+    left: 988px;
+    top: 452px;
+}
+.chess_home .blue_home .blue_foot4 {
+    position: absolute;
+    left: 1040px;
+    top: 452px;
+}
+.chess_home .blue_home .blue_foot5 {
+    position: absolute;
+    left: 1092px;
+    top: 452px;
+}
+.chess_home .blue_home .blue_general{
+    position: absolute;
+    left: 1144px;
+    top: 452px;
+}

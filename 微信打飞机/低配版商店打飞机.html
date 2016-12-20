@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="image/plane.ico">
+    <title>微信打飞机</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #contentdiv{
+            position: absolute;
+            left: 500px;
+        }
+        #startdiv{
+            width: 320px;
+            height: 568px;
+            background-image: url("image/开始背景.png") ;
+            /*插入背景图片*/
+        }
+        button{
+            outline: none;
+            /*按钮点击时没有轮廓样式*/
+        }
+        #startdiv button{
+            position: absolute;
+            top: 500px;
+            left: 82px;
+            width: 150px;
+            height: 30px;
+            border: 1px solid black;
+            /*边框设定：粗细 实心 颜色*/
+            border-radius: 30px;
+            /*边框的圆角设定，值越大越圆*/
+            background-color: #c4c9ca;
+        }
+        #maindiv{
+            width: 320px;
+            height: 568px;
+            background-image: url("image/background_1.png");
+            display: none;
+            /*该div默认不显示*/
+        }
+        #maindiv img{
+            position: absolute;
+            /*要设置图片的优先级要先写position: absolute*/
+            z-index: 2;
+            /*设置图片的优先级，z-index值越大优先级越大，图片处于页面最上层（图片重叠垂直方向上）*/
+        }
+        #maindiv #jiguang{
+            position: absolute;
+            left: 125px;
+            top: -10px;
+            height: 578px;
+            width: 70px;
+            z-index: 1;
+            display: none;
+        }
+        #scorediv{
+            font-size: 16px;
+            font-weight: bold;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            display: none;
+            z-index: 2;
+        }
+        #suspenddiv{
+            position: absolute;
+            top: 200px;
+            left: 82px;
+            z-index: 3;
+            display: none;
+        }
+        #suspenddiv button{
+            width: 150px;
+            height: 30px;
+            margin-bottom: 20px;
+            border-radius: 30px;
+            border: 1px solid black;
+            background-color: #c4c9ca;
+        }
+        #enddiv{
+            position: absolute;
+            top: 210px;
+            left: 75px;
+            border: 1px solid gray;
+            border-radius: 5px;
+            text-align: center;
+            background-color: #d7ddde;
+            z-index: 3;
+            display: none;
+        }
+        .planetext{
+            width: 160px;
+            height: 30px;
+            line-height: 30px;/*如果不设置行高会造成字体靠上居中*/
+            font-size: 16px;
+            font-weight: bold;
+        }
+        #planescore{
+            width: 160px;
+            height: 80px;
+            line-height: 80px;
+            border-top: 1px solid gray;
+            border-bottom: 1px solid gray;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        #enddiv div{
+            width: 160px;
+            height: 50px;
+        }
+        #enddiv div button{
+            margin-top: 10px;
+            width: 90px;
+            height: 30px;
+            border: 1px solid gray;
+            border-radius: 30px;
+        }
+        #zidan{
+            position: absolute;
+            top: 210px;
+            left: 75px;
+            border: 1px solid gray;
+            border-radius: 5px;
+            text-align: center;
+            background-color: #d7ddde;
+            z-index: 3;
+            display: none;
+        }
+        .one{
+            width: 80px;
+            height: 30px;
+            line-height: 30px;/*如果不设置行高会造成字体靠上居中*/
+            font-size: 16px;
+            font-weight: bold;
+        }
+        #zidan button{
+            margin-top: 10px;
+            width: 80px;
+            height: 30px;
+            border: 1px solid gray;
+            border-radius: 30px;
+        }
+        #XX{
+            position: absolute;
+            top: 210px;
+            left: 155px;
+            border: 1px solid gray;
+            border-radius: 5px;
+            text-align: center;
+            background-color: #d7ddde;
+            z-index: 3;
+            display: none;
+        }
+        .two{
+            width: 80px;
+            height: 30px;
+            line-height: 30px;/*如果不设置行高会造成字体靠上居中*/
+            font-size: 16px;
+            font-weight: bold;
+        }
+        #XX button{
+            margin-top: 10px;
+            width: 80px;
+            height: 30px;
+            border: 1px solid gray;
+            border-radius: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div id="contentdiv">
+    <!--这个div是一个容器，用于放置之后的一些div块-->
+        <div id="startdiv">
+            <button onclick="begin()">开始游戏</button>
+        </div>
+        <div id="maindiv">
+            <img src="image/激光.png" id="jiguang">
+            <div id="scorediv">
+                <label>分数：</label>
+                <label id="label">0</label><br>
+                <label>金币：</label>
+                <label id="money">0</label><br>
+            </div>
+            <div id="suspenddiv" >
+                <button>继续</button><br>
+                <button>重新开始</button><br>
+                <button>回到主页</button>
+                <button onclick="openshop()">商店</button>
+            </div>
+            <div id="zidan">
+                <p class="one">霹雳弹</p>
+                <label>300</label><br>
+                <button onclick="pilidan()">购买</button>
+            </div>
+            <!-- 想要更多商品可以继续添加div块-->
+            <div id="XX">
+                <p class="two">激光</p>
+                <label>500</label><br>
+                <button onclick="jgStart()">购买</button>
+            </div>
+            <div id="enddiv">
+                <p class="planetext">飞机大战分数</p>
+                <p id="planescore">0</p>
+                <div><button onclick="jixu()">继续</button></div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+
+        var startDiv = document.getElementById("startdiv"); //获取开始界面
+        var mainDiv = document.getElementById("maindiv");   //获取游戏主界面
+        var scoreDiv = document.getElementById("scorediv"); //获取游戏中分数显示界面
+        var scoreLabel = document.getElementById("label");  //获取分数界面
+        var suspendDiv = document.getElementById("suspenddiv"); //获取暂停界面
+        var endDiv = document.getElementById("enddiv");     //获取游戏结束界面
+        var planeScore = document.getElementById("planescore"); //获取游戏结束后分数统计界面
+        var scores = 0;                                        //分数初始化
+        var zidan = document.getElementById("zidan");//获取子弹购买界面
+        var money = document.getElementById("money");//获取金标签
+        var jiguang = document.getElementById("jiguang");//获得激光图片
+        var XX = document.getElementById("XX");//获得激光购买界面
+        var JGstart = false;//初始默认激光不发射
+        var mm = 0;//金币
+        var leixin = 0;//飞机子弹的类型初始值为0
+        var time1 = 0;//子弹持续时间初始值为0；
+        var time2 = 0;//激光持续时间初始值为0；
+
+        //创建飞机类
+        function plan(hp, X, Y, sizeX, sizeY, score, dietime, sudu, boomimage, imagesrc) {
+            this.planX = X;
+            this.planY = Y;
+            this.plansizeX = sizeX;
+            this.plansizeY = sizeY;
+            this.imagenode = null;               //飞机的图片
+            this.planhp = hp;                     //飞机的血量
+            this.planscore = score;              //飞机的分值大小
+            this.planboomimage = boomimage;     //飞机爆炸时的图片
+            this.planisdie = false;             //飞机是否已经死亡
+            this.plandietime = dietime;         //飞机死亡后消失的时间
+            this.plandietimes = 0;              //飞机死亡时调用的延迟效果，和死亡时间搭配使用
+            this.plansudu = sudu;               //飞机的移动速度
+
+            //飞机的移动
+            this.planmove = function() {
+                if(scores <= 50000 ) {
+                //飞机的top属性
+                    this.imagenode.style.top = this.imagenode.offsetTop + this.plansudu + "px";
+                }else if(scores > 50000 && scores <= 100000) {
+                    this.imagenode.style.top = this.imagenode.offsetTop + this.plansudu + 1 + "px";
+                }else if(scores > 100000 && scores <= 150000) {
+                    this.imagenode.style.top = this.imagenode.offsetTop + this.plansudu + 2 + "px";
+                }else if(scores > 150000 && scores <= 200000) {
+                    this.imagenode.style.top = this.imagenode.offsetTop + this.plansudu + 3 + "px";
+                }else if(scores > 200000 && scores <= 300000) {
+                    this.imagenode.style.top = this.imagenode.offsetTop + this.plansudu + 4 + "px";
+                }else {
+                    this.imagenode.style.top = this.imagenode.offsetTop + this.plansudu + 5 + "px";
+                }
+            };  //这里的分号不能忘记！！
+
+            this.init = function() {
+            //document.createElement创建一个img标签
+                this.imagenode = document.createElement("img");
+                this.imagenode.style.left = this.planX + "px";
+                this.imagenode.style.top = this.planY + "px";
+                this.imagenode.src = imagesrc;
+                mainDiv.appendChild(this.imagenode);
+            //将上面创建的img标签加入到mainDiv下面（配合document.creatElement一起使用）
+            };  //这里的分号不能忘记！！
+            this.init();
+        }
+
+        //构建子弹的类
+        function bullet(X, Y, sizeX, sizeY, imagesrc) {
+            this.bulletX = X;
+            this.bulletY = Y;
+            this.bulletsizeX = sizeX;
+            this.bulletsizeY = sizeY;
+            this.bulletimage = null;
+            //子弹的攻击力
+            this.bulletattach = 1;
+            //子弹的移动
+            this.bulletmove =function() {
+              this.bulletimage.style.top = this.bulletimage.offsetTop - 20 + "px";
+            };
+            this.init = function() {
+                this.bulletimage = document.createElement("img");
+                this.bulletimage.style.left = this.bulletX + "px";
+                this.bulletimage.style.top = this.bulletY + "px";
+                this.bulletimage.src = imagesrc;
+                mainDiv.appendChild(this.bulletimage);
+            };
+            this.init();
+        }
+
+        //创建函数，调用时输入两个数，随机生成这两个数之间的随机数
+        function random(min, max) {
+            //Math.floor 取整
+            return Math.floor(min + Math.random() * (max - min));
+        }
+
+        //敌方飞机类
+        function enemy(hp, a, b, sizeX, sizeY, score, dietime, sudu, boomimage, imagesrc) {
+        //plan(hp, random(a,b), -100, sizeX, sizeY, score, dietime, sudu, boomimage, imagesrc);
+            //等同下方代码
+            plan.call(this, hp, random(a,b), -100, sizeX, sizeY, score, dietime, sudu, boomimage, imagesrc);
+        }
+
+        //本方飞机类
+        function OurPlan(X, Y) {
+            var imagesrc = "image/我的飞机.gif";
+            //plan(1, X, Y, 66, 80, 0, 660, 0, "image/本方飞机爆炸.gif", imagesrc);
+            //等同下方代码
+            plan.call(this, 1, X, Y, 66, 80, 0, 660, 0, "image/本方飞机爆炸.gif", imagesrc);
+            this.imagenode.setAttribute("id", "ourplan");
+            //setAttribute设置属性，这其实是一个img标签，第一个参数设定什么属性，第二个参数是属性值
+        }
+
+        //创建单行子弹的类
+        function oddbullet(X, Y) {
+//            调用一个对象的一个方法，以另一个对象替换当前对象
+//            bullet(X, Y, 6, 14, "image/bullet1.png");等价于下方代码
+            bullet.call(this, X, Y, 6, 14, "image/bullet1.png");
+        }
+
+        var selfplan = new OurPlan(120, 485);//创建本方飞机对象
+        var ourPlan = document.getElementById("ourplan"); //拿到id为ourplan的图片对象，就是拿到本方飞机图片
+
+        //本方飞机移动
+        var yidong = function() {
+            var oevent = window.event || arguments[0];
+            //window.event将用户的行为（按键，移动或点击鼠标等）作为事件保存下来
+            //arguments[0]是为了多浏览器的兼容的操作
+            var chufu = oevent.srcElement || oevent.target;
+            //oevent.srcElement获取事件的元素， oevent.target多浏览器支持
+            var selfplanX = oevent.clientX - 500;
+            //oevent.clientX表示鼠标相对页面的X坐标，因为容器div存在500偏移量，鼠标坐标减去500后换算成在游戏界面内的坐标
+            var selfplanY = oevent.clientY;
+            ourPlan.style.left = selfplanX - selfplan.plansizeX/2 + "px";
+            //鼠标和飞机的坐标都是以左上角顶点计算的，以下操作为了让鼠标停留在飞机的正中心，增强游戏的视觉效果
+            ourPlan.style.top = selfplanY - selfplan.plansizeY/2 + "px";
+            //激光跟着飞机一起移动
+            jiguang.style.left = selfplanX - selfplan.plansizeX/2 - 2 + "px";
+        };
+
+        //暂停事件
+        var number = 0;
+        var zanting = function() {
+            if(number == 0) {
+            //让暂停界面出现
+                suspendDiv.style.display = "block";
+                //判断该浏览器是否支持removeEventListener方法 （ie9以下不支持）
+                if(document.removeEventListener) {
+                    //removeEventListener移除事件观察者
+                    mainDiv.removeEventListener("mousemove", yidong, true);
+                    bodyobj.removeEventListener("mousemove", bianjie, true);
+                }else if(document.detachEvent) {
+                    //ie9以下的版本支持detachEvent 方法
+                    mainDiv.detachEvent("onmousemove", yidong);
+                    bodyobj.detachEvent("onmousemove", bianjie);
+                }
+                clearInterval(set);
+                number = 1;
+            }else {
+                suspendDiv.style.display = "none";
+                zidan.style.display = "none";
+                XX.style.display = "none";
+                if(document.addEventListener) {
+                    mainDiv.addEventListener("mousemove", yidong, true);
+                    bodyobj.addEventListener("mousemove", bianjie, true);
+                }else if(document.attachEvent) {
+                    mainDiv.attachEvent("onmousemove", yidong);
+                    bodyobj.attachEvent("onmousemove", bianjie);
+                }
+                set = setInterval(start, 20);
+                number = 0;
+            }
+        };
+
+        //判断飞机是否移出边界，如果移出边界那么就移除观察者，如果没有，就加上观察者
+        var bianjie = function() {
+            var oevent = window.event||arguments[0];
+            var bodyobjX = oevent.clientX - 500;
+            var bodyobjY = oevent.clientY;
+            if(bodyobjY < 0 || bodyobjY > 568 || bodyobjX < 5 || bodyobjX > 315) {
+                if(document.removeEventListener) {
+                    //removeEventListener移除事件观察者
+                    mainDiv.removeEventListener("mousemove", yidong, true);
+                }else if(document.detachEvent) {
+                    //ie9以下的版本支持detachEvent 方法
+                    mainDiv.detachEvent("onmousemove", yidong);
+                }
+            }else {
+                if(document.addEventListener) {
+                    mainDiv.addEventListener("mousemove", yidong, true);
+                }else if(document.attachEvent) {
+                    mainDiv.attachEvent("onmousemove", yidong);
+                }
+            }
+        };
+
+        //getElementsByTagName 拿到指定标签名的对象的集合
+        var bodyobj = document.getElementsByTagName("body")[0];
+        //给页面上的元素添加观察者
+        if(document.addEventListener) {
+            //为本方飞机添加移动和暂停
+            mainDiv.addEventListener("mousemove", yidong, true);
+            //为本方飞机添加暂停事件
+            selfplan.imagenode.addEventListener("click", zanting, true);
+            //为body添加判断本方飞机移出边界事件
+            bodyobj.addEventListener("mousemove", bianjie, true);
+            //为暂停界面的继续按钮添加暂停事件
+            suspendDiv.getElementsByTagName("button")[0].addEventListener("click", zanting, true);
+            //为暂停界面的回到主页按钮添加事件
+            suspendDiv.getElementsByTagName("button")[2].addEventListener("click", jixu, true);
+            suspendDiv.getElementsByTagName("button")[3].addEventListener("click",openshop,true);
+            //为子弹购买界面添加观察者
+            zidan.getElementsByTagName("button")[0].addEventListener("click",pilidan,true);
+            //为激光购买界面添加观察者
+            XX.getElementsByTagName("button")[0].addEventListener("click",jgStart,true);
+        }else if(document.attachEvent) {
+            mainDiv.attachEvent("onmousemove", yidong);
+            selfplan.imagenode.attachEvent("onclick", zanting);
+            bodyobj.attachEvent("onmousemove", bianjie);
+            suspendDiv.getElementsByTagName("button")[0].attachEvent("onclick", zanting);
+            suspendDiv.getElementsByTagName("button")[2].attachEvent("onclick", jixu);
+            zidan.getElementsByTagName("button")[0].attachEvent("onclick",pilidan);
+            XX.getElementsByTagName("button")[0].attachEvent("onclick",jgStart);
+        }
+
+
+        /*
+         敌机对象数组
+         */
+        var enemys=[];
+
+        /*
+         子弹对象数组
+         */
+        var bullets=[];
+
+        var mark=0;
+        var mark1=0;
+        var backgroundPositionY=0;
+        /*
+         开始函数
+         */
+        function start(){
+            mainDiv.style.backgroundPositionY=backgroundPositionY+"px";
+            backgroundPositionY+=0.5;
+            if(backgroundPositionY==568){
+                backgroundPositionY=0;
+            }
+            time2++;// 激光计时器
+            time1++;
+            if(time1 >=400) {leixin = 0;}
+            mark++;
+            /*
+             创建敌方飞机
+             */
+
+            if(mark==20){
+                mark1++;
+                //中飞机
+                if(mark1%5==0){
+                    enemys.push(new enemy(6,25,274,46,60,5000,360,random(1,3),"image/中飞机爆炸.gif","image/enemy3_fly_1.png"));
+                }
+                //大飞机
+                if(mark1==20){
+                    enemys.push(new enemy(12,57,210,110,164,30000,540,1,"image/大飞机爆炸.gif","image/enemy2_fly_1.png"));
+                    mark1=0;
+                }
+                //小飞机
+                else{
+                    enemys.push(new enemy(1,19,286,34,24,1000,360,random(1,4),"image/小飞机爆炸.gif","image/enemy1_fly_1.png"));
+                }
+                mark=0;
+            }
+
+            /*
+             移动敌方飞机
+             */
+            var enemyslen=enemys.length;
+            for(var i=0;i<enemyslen;i++){
+                if(enemys[i].planisdie!=true){
+                    enemys[i].planmove();
+                }
+                /*
+                 如果敌机超出边界,删除敌机
+                 */
+                if(enemys[i].imagenode.offsetTop>568){
+                    mainDiv.removeChild(enemys[i].imagenode);
+                    enemys.splice(i,1);
+                    enemyslen--;
+                }
+                //当敌机死亡标记为true时，经过一段时间后清除敌机
+                if(enemys[i].planisdie==true){
+                    enemys[i].plandietimes+=20;
+                    if(enemys[i].plandietimes==enemys[i].plandietime){
+                        mainDiv.removeChild(enemys[i].imagenode);
+                        //数组中移除i元素  从哪里开始删除几个  i位置开始删除1个
+                        enemys.splice(i,1);
+                        enemyslen--;
+                    }
+                }
+            }
+
+            /*
+             创建子弹
+             */
+            if(mark%5==0) {
+                //parseInt是强制转换，selfplan.imagenode.style.left是带px单位的，本质上是一个字符窜
+                for (var i = 0; i < leixin + 1; i++) {
+                    bullets.push(new oddbullet(parseInt(selfplan.imagenode.style.left) + 31 + 10 * Math.floor((i + 1) / 2) * Math.pow(-1, i), parseInt(selfplan.imagenode.style.top) - 10));
+                }
+            }
+
+            /*
+             移动子弹
+             */
+            var bulletslen=bullets.length;
+
+            for(var i=0;i<bulletslen;i++){
+                bullets[i].bulletmove();
+                /*
+                 如果子弹超出边界,删除子弹
+                 */
+                if(bullets[i].bulletimage.offsetTop<0){
+                    mainDiv.removeChild(bullets[i].bulletimage);
+                    bullets.splice(i,1);
+                    bulletslen--;
+                }
+            }
+
+            /*
+             碰撞判断
+             */
+            for(var k=0;k<bulletslen;k++){
+                for(var j=0;j<enemyslen;j++){
+                    //判断碰撞本方飞机
+                    if(enemys[j].planisdie==false){
+                        if(enemys[j].imagenode.offsetLeft+enemys[j].plansizeX>=selfplan.imagenode.offsetLeft&&enemys[j].imagenode.offsetLeft<=selfplan.imagenode.offsetLeft+selfplan.plansizeX){
+                            if(enemys[j].imagenode.offsetTop+enemys[j].plansizeY>=selfplan.imagenode.offsetTop+40&&enemys[j].imagenode.offsetTop<=selfplan.imagenode.offsetTop-20+selfplan.plansizeY){
+                                //碰撞本方飞机，游戏结束，统计分数
+                                selfplan.imagenode.src="image/本方飞机爆炸.gif";
+                                endDiv.style.display="block";
+                                planeScore.innerHTML=scores;
+                                if(document.removeEventListener){
+                                    mainDiv.removeEventListener("mousemove",yidong,true);
+                                    bodyobj.removeEventListener("mousemove",bianjie,true);
+                                }
+                                else if(document.detachEvent){
+                                    mainDiv.detachEvent("onmousemove",yidong);
+                                    bodyobj.removeEventListener("mousemove",bianjie,true);
+                                }
+                                clearInterval(set);
+                            }
+                        }
+                        money.innerHTML=mm;
+                        if(JGstart == true) {
+                            jiguang.style.display = "block";
+                            if(enemys[j].imagenode.offsetLeft >= (selfplan.imagenode.offsetLeft -4  - enemys[j].plansizeX ) && enemys[j].imagenode.offsetLeft <= (selfplan.imagenode.offsetLeft + 36 + enemys[j].plansizeX )) {
+                                enemys[j].planhp = 0;
+                                scores=scores+enemys[j].planscore;
+                                mm = mm + enemys[j].planscore / 100;
+                                scoreLabel.innerHTML=scores;
+                                enemys[j].imagenode.src=enemys[j].planboomimage;
+                                enemys[j].planisdie=true;
+                                mainDiv.removeChild(bullets[k].bulletimage);
+                                bullets.splice(k, 1);
+                                bulletslen--;
+                                break;
+
+                           }
+                           if(time2 >=400 ) {
+                                JGstart = false;
+                                jiguang.style.display = "none";
+                           }
+                        }else {
+                            if ((bullets[k].bulletimage.offsetLeft + bullets[k].bulletsizeX > enemys[j].imagenode.offsetLeft) && (bullets[k].bulletimage.offsetLeft < enemys[j].imagenode.offsetLeft + enemys[j].plansizeX)) {
+                                if (bullets[k].bulletimage.offsetTop <= enemys[j].imagenode.offsetTop + enemys[j].plansizeY && bullets[k].bulletimage.offsetTop + bullets[k].bulletsizeY >= enemys[j].imagenode.offsetTop) {
+                                    //敌机血量减子弹攻击力
+                                    enemys[j].planhp = enemys[j].planhp - bullets[k].bulletattach;
+                                    //敌机血量为0，敌机图片换为爆炸图片，死亡标记为true，计分
+                                    if (enemys[j].planhp <= 0) {
+                                        scores = scores + enemys[j].planscore;
+                                        mm = mm + enemys[j].planscore / 100;
+                                        scoreLabel.innerHTML = scores;
+                                        enemys[j].imagenode.src = enemys[j].planboomimage;
+                                        enemys[j].planisdie = true;
+                                    }
+                                    //删除子弹
+                                    mainDiv.removeChild(bullets[k].bulletimage);
+                                    bullets.splice(k, 1);
+                                    bulletslen--;
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        //构建begin函数
+        var set;
+        function begin() {
+            startDiv.style.display = "none";
+            mainDiv.style.display = "block";
+            scoreDiv.style.display = "block";
+            selfplan.imagenode.style.display = "block";
+            //调用开始函数
+            set = setInterval(start,20);
+
+        }
+
+        //构建openshop函数
+        function openshop() {
+            suspendDiv.style.display = "none";
+            zidan.style.display = "block";
+            XX.style.display = "block";
+
+        }
+        //构建pilidan函数
+        function pilidan() {
+            if(mm >= 300) {
+                time1 = 0;
+                leixin++;
+                mm = mm - 300;
+            }
+        }
+        function jgStart() {
+            if(mm >= 500) {
+                time2 = 0;
+                mm = mm - 500;
+                JGstart = true;
+            }
+        }
+        //游戏结束后点击继续按钮事件
+        function jixu() {
+           //强迫浏览器刷新当前页面，true从服务器端获取最新页面，false从缓存读取数据
+           location.reload(true);
+        }
+
+    </script>
+</body>
+</html>

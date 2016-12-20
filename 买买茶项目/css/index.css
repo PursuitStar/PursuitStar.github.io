@@ -1,0 +1,546 @@
+/*样式重置*/
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{
+    margin:0;
+    padding:0;
+}
+/*公共样式*/
+body{
+    font: 12px/1.5 tahoma,arial,'Hiragino Sans GB',\5b8b\4f53,sans-serif;
+    color:#333;
+}
+.w{
+    width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+.cl10{
+    height: 10px;
+    clear: both;
+}
+.fl{
+    float: left;
+}
+.fr{
+    float: right;
+}
+ul {
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+/*头部样式设置开始*/
+.mmctop {
+    width: 100%;
+    background-color: #f7f7f7;
+}
+.mmctop .con{
+    height: 30px;
+    position: relative;
+}
+.mmctop .con ul{
+    list-style: none;
+}
+.mmctop .con  ul li{
+    float: left;
+    padding: 0 12px;
+}
+.mmctop .con .topcon_left ul, .mmctop .con .topcon_right ul{
+    line-height: 30px;
+}
+.mmctop .con .topcon_right ul li a,.mmctop .con .topcon_left ul li a{
+    text-decoration: none;
+    color:#666666;
+}
+.mmctop .con .topcon_right ul li a:hover,.mmctop .con .topcon_left ul li a:hover{
+    color: #ca1b28;
+}
+/*左边*/
+.mmctop .con .topcon_left .first{
+    padding: 0 12px 0 0;
+}
+.mmctop .con .topcon_left ul li{
+    position: relative;
+}
+.mmctop .con .topcon_left ul li span{
+    position: absolute;
+    right: -2px;
+}
+/*右边*/
+.mmctop .con .topcon_right .tel_call img{
+    width: 15px;
+    height: 15px;
+    line-height: 14px;
+    position: relative;
+    top: 4px;
+}
+.mmctop .con .topcon_right ul .last{
+    padding: 0 4px 0 12px;
+}
+.mmctop .con .topcon_right ul li b{
+    font-weight: normal;
+}
+.mmctop .con .topcon_right ul li b a{
+    color: #ca1926;
+    margin: 0 3px;
+}
+.mmctop .con .topcon_right ul .li_span{
+    position: relative;
+}
+.mmctop .con .topcon_right ul .li_span span{
+    position: absolute;
+    right: -2px;
+}
+.tel_nub{
+    color: #ca1926;
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+}
+/*头部样式设置结束*/
+/*g广告栏样式设置开始*/
+.ad{
+    width: 100%;
+    height: 90px;
+    text-align: center;
+}
+.ad img{
+    width: 80%;
+
+}
+/*广告栏样式设置结束*/
+/*header样式设置开始*/
+.mmcheader h1{
+    position: absolute;
+    text-indent: -999em;
+}
+
+.mmcheader .content .banner{
+    height: 89px;
+    position: relative;
+    margin-left: 260px;
+}
+/*搜索栏*/
+.mmcheader .content .banner .search_bg{
+    width: 396px;
+    height: 30px;
+    border:2px solid #62b206;
+    overflow: hidden;
+}
+.mmcheader .content .banner .search_bg .searchtext{
+    width: 314px;
+    height: 16px;
+    line-height: 16px;
+    margin: 0 auto;
+    padding: 8px 4px 6px;
+    text-indent: 4px;
+    border: none;
+    position: absolute;
+    font-size: 12px;
+}
+.mmcheader .content .banner .search_bg .input_btn{
+    width: 74px;
+    height: 30px;
+    line-height: 32px;
+    background-color: #62b206;
+    border: none;
+    position: absolute;
+    left:324px;
+    cursor: pointer;
+    font-size: 14px;
+    color: white;
+}
+.mmcheader .banner .global_search{
+    margin: 3px 0 0 0;
+    width: 400px;
+    position: absolute;
+    left:8%;
+    top:0;
+}
+/*热词*/
+.mmcheader .banner .new_hot_search{
+    height: 25px;
+    line-height: 25px;
+    color:#6c6c6c;
+    margin-left: -4px;
+}
+.mmcheader .banner .new_hot_search ul li{
+    float: left;
+    margin: 0 4px;
+}
+.mmcheader .banner .new_hot_search ul li a{
+   text-decoration: none;
+    color: #6c6c6c;
+}
+.mmcheader .banner .new_hot_search ul .hot_red{
+    color: #FF0202;
+}
+.mmcheader .banner .new_hot_search ul .first{
+    margin: 0 0;
+}
+.mmcheader .banner .new_hot_search ul .last{
+    margin-left: 0px;
+}
+.mmcheader .banner .new_mybuy{
+    width: 311px;
+    height: 38px;
+    margin: 3px 30px 0 0;
+}
+/*header样式设置结束*/
+
+/*导航栏样式设置开始*/
+.new_nav{
+    width: 100%;
+    background-color: #62b206;
+    height: 40px;
+    position: relative;
+    font-family: "微软雅黑";
+}
+.new_nav .menu_ul ul li{
+    float: left;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+}
+.new_nav .menu_ul ul .active{
+    background-color: #438f0e;
+}
+.new_nav .menu_ul ul li a{
+    display: block;
+    font-size: 14px;
+    color: white;
+    padding: 0 20px;
+    font-family: "微软雅黑";
+}
+.new_nav .menu_ul ul .mct{
+    display: block;
+    background: url(../image/nav_bg_06.jpg) no-repeat center center;
+    font-size: 14px;
+    color: #54a70d;
+    padding: 0 20px;
+    font-family: "微软雅黑";
+}
+.new_nav .menu_ul ul .mct:hover,.new_nav .menu_ul ul .mct2:hover{
+    color: #ca1b28;
+}
+.new_nav .menu_ul ul .mct2{
+    display: block;
+    background: url(../image/nav_bg_07.jpg) no-repeat center center;
+    font-size: 14px;
+    color: #54a70d;
+    padding: 0 20px;
+    font-family: "微软雅黑";
+}
+/*购物车样式*/
+.new_nav .new_buycar{
+    width: 130px;
+    height: 30px;
+    text-align: center;
+    line-height: 40px;
+    padding: 10px 20px 0 6px;
+}
+.new_nav .new_buycar .new_buycar_bg{
+    display: inline-block;
+    width: 21px;
+    height: 20px;
+    line-height: 20px;
+    margin-left: 1px;
+    background: url(../image/bj.png) 0 -190px no-repeat;
+}
+.new_nav .new_buycar a{
+    /*display: block;*/
+    color: white;
+    margin-left:5px;
+}
+.new_nav .new_buycar a em{
+    padding: 0 4px;
+    text-align: center;
+    font-style: normal;
+}
+/*导航栏样式设置结束*/
+
+/*幻灯片样式开始*/
+.player{
+    /*width: 100%;*/
+    height: 425px;
+
+}
+.player .player_con{
+    position: relative;
+    overflow: hidden;
+    /*width: 100%;*/
+    height: 425px;
+}
+.player_img{
+    position: absolute;
+    height: 425px;
+    width: 4749px;
+}
+.player .player_con .player_img li img{
+    width: 1583px;
+    /*height: 425px;*/
+}
+.player .player_con .player_img li{
+    float: left;
+}
+/*圆点*/
+.player .player_con .circle{
+    position: absolute;
+    left: 50%;
+    margin-left: -69px;
+    top: 400px;
+}
+.player .player_con .circle ul li{
+    float: left;
+    margin:0 12px;
+}
+.player .player_con .circle ul li a{
+    display: block;
+    width: 22px;
+    height: 22px;
+    text-align: center;
+    line-height: 22px;
+    border-radius: 50%;
+    background-color: #417a00;
+    color: white;
+}
+/*幻灯片样式结束*/
+
+
+
+
+
+
+
+
+
+/*页面底部开始*/
+.new_bottom{
+    border:1px solid #D3D3D3;
+    height: 154px;
+    margin: 12px auto 0;
+    overflow-x: hidden;
+    padding-top: 16px;
+}
+.new_bottom .icoc_c {
+    background: url(../image/foot_line.gif) no-repeat scroll right center transparent;
+    float: left;
+    padding: 10px 20px;
+    width: 150px;
+    min-height: 134px;
+}
+.new_bottom .icoc_c dt.ico1{
+    background-position: 5px 0;
+}
+.new_bottom .icoc_c dt.ico2{
+    background-position: 0 -39px;
+}
+.new_bottom .icoc_c dt.ico3{
+    background-position: 0 -79px;
+}
+.new_bottom .icoc_c dt.ico4{
+    background-position: 0 -162px;
+}
+.new_bottom .icoc_c dt.ico5{
+    background-position: 0 -120px;
+}
+.new_bottom .icoc_c dt{
+    background: url(../image/foothelp_group.png) no-repeat scroll 0 0 transparent;
+    color: #408c0c;
+    display: block;
+    font:bold 14px/30px "宋体";
+    margin-bottom: 6px;
+    text-indent: 35px;
+}
+.new_bottom .icoc_c dd{
+    font-size: 12px;
+    line-height: 20px;
+    text-indent: 35px;
+}
+.new_bottom .icoc_c dd a{
+    color:#000;
+}
+.new_bottom .icoc_c dd a:hover{
+    text-decoration: underline;
+    color: #ff5a07;
+}
+.new_bottom .bottom_tell{
+    height: 120px;
+    font-size: 12px;
+    line-height: 30px;
+    overflow: hidden;
+    padding-top: 16px;
+    text-align: center;
+    width: 240px;
+}
+.new_bottom .bottom_tell .foot_tell{
+    height: 43px;
+    overflow: hidden;
+}
+.new_bottom .bottom_tell .foot_tell img{
+    vertical-align: middle;
+}
+.new_bottom .bottom_tell .teng{
+    display: inline-block;
+    text-indent: 50px;
+    float: left;
+
+    height: 22px;
+    background: url(../image/weibo_group.gif) no-repeat 24px -28px transparent;
+    margin-left: 30px;
+}
+.new_bottom .bottom_tell .xin{
+    display: inline-block;
+    text-indent: 50px;
+    float: left;
+    height: 22px;
+    background: url(../image/weibo_group.gif) no-repeat 24px -70px transparent;
+    margin-left: 30px;
+}
+.new_bottom .bottom_tell ul li a{
+    height: 22px;
+    text-align: center;
+    line-height: 22px;
+    color:#297929;
+}
+.new_bottom .bottom_tell ul li a:hover{
+    text-decoration: underline;
+}
+/*页面底部结束*/
+
+/*页面foot开始*/
+.themefoot {
+    margin-top: 20px;
+    height: 210px;
+    position: relative;
+    text-align: center;
+}
+.themefoot ul{
+    margin-left: 370px;
+}
+.themefoot ul li{
+    float: left;
+}
+.themefoot ul li a{
+    margin: 0 10px;
+    color:#000;
+}
+.themefoot ul li a:hover{
+    text-decoration: underline;
+    color: #ff5a07;
+}
+.themefoot .foottext1{
+    margin-left: -14px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    color: #6B6B6B;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.themefoot .foottext2 img{
+    height: 22px;
+    width: 22px;
+    position: relative;
+    top:6px;
+}
+.themefoot .foottext2{
+    margin-top: -4px;
+    height: 22px;
+    line-height: 22px;
+    color: #6B6B6B;
+}
+.themefoot .foottext2 a{
+    color:#000;
+}
+.themefoot .foottext2 a:hover{
+    text-decoration: underline;
+    color: #ff5a07;
+}
+.themefoot .footimg {
+    height: 47px;
+    position: absolute;
+    left: 50%;
+    margin-left: -335px;
+    bottom: 0;
+    /*margin-top: 180px;*/
+}
+/*页面foot结束*/
+
+/*动态在线客服开始*/
+.showBox{
+    z-index: 999;
+    height: 290px;
+    position: absolute;
+    top:200px;
+    right:0;
+}
+.showBox .open{
+    width: 25px;
+    height: 92px;
+    background: url(../image/kefu.jpg) no-repeat;
+}
+.showBox .contenbox{
+    display: none;
+    border: 1px solid #f82424;
+    background-color: #ca0202;
+    height: 286px;
+    width: 94px;
+
+}
+.showBox .contenbox .closebox{
+    position: absolute;
+    height: 8px;
+    width: 8px;
+    text-align: center;
+    line-height: 8px;
+    top: 0;
+    right: 0;
+    color:white;
+    cursor: pointer;
+}
+
+.showBox .contenbox ul{
+    text-align: center;
+    margin-top: 8px;
+}
+.showBox .contenbox ul li{
+    height: 38px;
+    text-align: center;
+    line-height: 38px;
+    border-bottom: 1px solid #a90303;
+}
+.showBox .contenbox ul .last{
+    border-bottom: none;
+}
+.showBox .contenbox ul li a{
+    display: inline-block;
+    padding-left: 24px;
+    color: #fffeff;
+
+}
+.showBox .contenbox ul li .img1{
+    background:url("../image/kefu01.png") no-repeat left center;
+}
+.showBox .contenbox ul li .img2{
+    background:url("../image/kefu02.png") no-repeat left center;
+}
+.showBox .contenbox ul li .img3{
+    background:url("../image/kefu03.png") no-repeat left center;
+}
+.showBox .contenbox ul li .img4{
+    background:url("../image/kefu04.png") no-repeat left center;
+}
+/*动态在线客服结束*/
+/*快速返回顶部开始*/
+.quaitop{
+    display: none;
+    width: 48px;
+    height: 48px;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    background: url("../image/top.png") no-repeat;
+    opacity: 1;
+}
+
+/*快速返回顶部结束*/

@@ -1,0 +1,219 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="images/qi.png"/>
+    <link rel="stylesheet" href="css/all.css">
+    <link rel="stylesheet" href="css/game.css">
+    <link rel="stylesheet" href="css/32chess.css">
+
+    <title>Make up by PursuitStar</title>
+    <style></style>
+    <script src="lib/jquery-3.1.0.min.js"></script>
+    <script src="lib/jquery.easing.min.js"></script>
+    <script src="lib/jquery-ui.js"></script>
+</head>
+<body id="body">
+<div class="bao">
+
+    <!--log部分-->
+    <div class="logo"> </div>
+
+    <!--棋盘部分开始-->
+    <div class="checker" id="checker">
+        <!--第一横排-->
+        <div class="row">
+            <div class="chess_block" id="block1_1"></div>
+            <div class="chess_block"></div>
+            <div class="chess_block"></div>
+            <div class="chess_block"></div>
+            <div class="chess_block"></div>
+            <div class="chess_block"></div>
+            <div class="chess_block"></div>
+            <div class="chess_block"></div>
+            <div class="chess_block"></div>
+        </div>
+        <!--第二横排-->
+        <div class="row">
+            <div class="chess_block"></div>
+            <div class="chess_block"></div>
+            <div class="chess_block"></div>
+            <div class="chess_block"></div>
+            <div class="chess_block"></div>
+            <div class="chess_block"></div>
+            <div class="chess_block"></div>
+            <div class="chess_block"></div>
+            <div class="chess_block"></div>
+        </div>
+        <!--第三横排-->
+        <div class="row">
+            <div class="chess_block"></div>
+            <div class="chess_block"></div>
+            <div class="chess_block"></div>
+            <div class="chess_block"></div>
+            <div class="chess_block"></div>
+            <div class="chess_block"></div>
+            <div class="chess_block"></div>
+            <div class="chess_block"></div>
+            <div class="chess_block"></div>
+        </div>
+        <!--第四横排-->
+        <div class="row">
+            <div class="chess_block"></div>
+            <div class="chess_block"></div>
+            <div class="chess_block"></div>
+            <div class="chess_block"></div>
+            <div class="chess_block"></div>
+            <div class="chess_block"></div>
+            <div class="chess_block"></div>
+            <div class="chess_block"></div>
+            <div class="chess_block"></div>
+        </div>
+        <!--第五横排-->
+        <div class="row">
+            <div class="chess_block"></div>
+            <div class="chess_block"></div>
+            <div class="chess_block"></div>
+            <div class="chess_block"></div>
+            <div class="chess_block"></div>
+            <div class="chess_block"></div>
+            <div class="chess_block"></div>
+            <div class="chess_block"></div>
+            <div class="chess_block"></div>
+        </div>
+        <!--第六横排-->
+        <div class="row">
+            <div class="chess_block"></div>
+            <div class="chess_block"></div>
+            <div class="chess_block"></div>
+            <div class="chess_block"></div>
+            <div class="chess_block"></div>
+            <div class="chess_block"></div>
+            <div class="chess_block"></div>
+            <div class="chess_block"></div>
+            <div class="chess_block"></div>
+        </div>
+        <!--第七横排-->
+        <div class="row">
+            <div class="chess_block"></div>
+            <div class="chess_block"></div>
+            <div class="chess_block"></div>
+            <div class="chess_block"></div>
+            <div class="chess_block"></div>
+            <div class="chess_block"></div>
+            <div class="chess_block"></div>
+            <div class="chess_block"></div>
+            <div class="chess_block"></div>
+        </div>
+        <!--第八横排-->
+        <div class="row">
+            <div class="chess_block"></div>
+            <div class="chess_block"></div>
+            <div class="chess_block"></div>
+            <div class="chess_block"></div>
+            <div class="chess_block"></div>
+            <div class="chess_block"></div>
+            <div class="chess_block"></div>
+            <div class="chess_block"></div>
+            <div class="chess_block"></div>
+        </div>
+        <!--第九横排-->
+        <div class="row">
+            <div class="chess_block"></div>
+            <div class="chess_block"></div>
+            <div class="chess_block"></div>
+            <div class="chess_block"></div>
+            <div class="chess_block"></div>
+            <div class="chess_block"></div>
+            <div class="chess_block"></div>
+            <div class="chess_block"></div>
+            <div class="chess_block"></div>
+        </div>
+    </div>
+    <!--棋盘部分结束-->
+
+    <!--棋盒部分开始-->
+    <div class="chess_home" id="chess_home">
+        <div class="red_home" id="red_home">
+            <div class="chess red_chess red_bow1" id="red_bow1" tabindex="-1">弓</div>
+            <div class="chess red_chess red_bow2" id="red_bow2">弓</div>
+            <div class="chess red_chess red_bow3" id="red_bow3">弓</div>
+            <div class="chess red_chess red_bow4" id="red_bow4">弓</div>
+            <div class="chess red_chess red_bow5" id="red_bow5">弓</div>
+            <div class="chess red_chess red_horse1" id="red_horse1">骑</div>
+            <div class="chess red_chess red_horse2" id="red_horse2">骑</div>
+            <div class="chess red_chess red_horse3" id="red_horse3">骑</div>
+            <div class="chess red_chess red_horse4" id="red_horse4">骑</div>
+            <div class="chess red_chess red_horse5" id="red_horse5">骑</div>
+            <div class="chess red_chess red_foot1"  id="red_foot1">步</div>
+            <div class="chess red_chess red_foot2" id="red_foot2">步</div>
+            <div class="chess red_chess red_foot3" id="red_foot3">步</div>
+            <div class="chess red_chess red_foot4" id="red_foot4">步</div>
+            <div class="chess red_chess red_foot5" id="red_foot5">步</div>
+            <div class="chess red_chess red_general" id="red_general">将</div>
+        </div>
+        <div class="gezi"></div>
+        <div class="blue_home" id="blue_home">
+            <div class="chess blue_chess blue_bow1" id="blue_bow1">弓</div>
+            <div class="chess blue_chess blue_bow2" id="blue_bow2">弓</div>
+            <div class="chess blue_chess blue_bow3" id="blue_bow3">弓</div>
+            <div class="chess blue_chess blue_bow4" id="blue_bow4">弓</div>
+            <div class="chess blue_chess blue_bow5" id="blue_bow5">弓</div>
+            <div class="chess blue_chess blue_horse1" id="blue_horse1">骑</div>
+            <div class="chess blue_chess blue_horse2" id="blue_horse2">骑</div>
+            <div class="chess blue_chess blue_horse3" id="blue_horse3">骑</div>
+            <div class="chess blue_chess blue_horse4" id="blue_horse4">骑</div>
+            <div class="chess blue_chess blue_horse5" id="blue_horse5">骑</div>
+            <div class="chess blue_chess blue_foot1"  id="blue_foot1">步</div>
+            <div class="chess blue_chess blue_foot2" id="blue_foot2">步</div>
+            <div class="chess blue_chess blue_foot3" id="blue_foot3">步</div>
+            <div class="chess blue_chess blue_foot4" id="blue_foot4">步</div>
+            <div class="chess blue_chess blue_foot5" id="blue_foot5">步</div>
+            <div class="chess blue_chess blue_general" id="blue_general">将</div>
+        </div>
+    </div>
+    <!--棋盒部分结束-->
+
+
+    <!--阵型选择部分-->
+    <div class="formation">
+        <div class="fl">
+            <button class="btn btn-red" id="red_reuilly">鹤翼阵</button>
+            <button class="btn btn-red" id="red_charge">冲锋阵</button>
+            <button class="btn btn-red" id="red_snake">长蛇阵</button>
+        </div>
+        <button class="begin" id="begin">开始游戏</button>
+        <button class="rebegin" id="rebegin">重新开始</button>
+        <div class="fr">
+            <button class="btn btn-blue" id="blue_reuilly">鹤翼阵</button>
+            <button class="btn btn-blue" id="blue_charge">冲锋阵</button>
+            <button class="btn btn-blue" id="blue_snake">长蛇阵</button>
+        </div>
+    </div>
+    <!--规则部分   -->
+    <button class="rule" id="rule">规则明细</button>
+
+</div>
+<div class="rulesay" id="rulesay">
+    <p>1.双方选择阵型摆好</p>
+    <p>2.按下开始游戏</p>
+    <p>3.红方先下，交替走一步</p>
+    <p>4.骑，将：一次可以走1-2步，可以吃掉对方棋子</p>
+    <p>5.弓：一次可以走一步或者不走，可以射杀和自己距离为2的棋子</p>
+    <p>6.步：一次可以走1步，可以吃掉对方棋子</p>
+    <p>7.一方的将死亡，游戏结束</p>
+    <p><button id="closerule">我明白了</button></p>
+</div>
+
+<!--进入游戏界面-->
+<div class="enter" id="enter">
+    <button id="buttonenter">进入游戏</button>
+</div>
+
+
+</body>
+<script src="js/rule.js"></script>
+<script src="js/attack.js"></script>
+<script src="js/move.js"></script>
+</html>
