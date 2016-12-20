@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Amazon 注册</title>
+    <meta name="description" content="亚马逊中国（z.cn）坚持“以客户为中心”的理念，秉承“天天低价，正品行货”信念，销售图书、电脑、数码家电、母婴百货、服饰箱包等上千万种产品。亚马逊中国提供专业服务：正品行货天天低价，机打发票全国联保。货到付款，30天内可退换货。亚马逊为中国消费者提供便利、快捷的网购体验。"/>
+    <meta name="keywords" content="网购,网上购物,在线购物,网购网站,网购商城,购物网站,网购中心,购物中心,卓越,亚马逊,卓越亚马逊,亚马逊中国,joyo,amazon"/>
+    <link rel="icon" href="images/icno.png"/>
+    <link rel="stylesheet" href="css/base.css"/>
+    <style>
+        .bodyCenter {
+            width: 312px;
+            height: 600px;
+            margin: 10px auto;
+            position: relative;
+        }
+        .bodyCenter .titleImg {
+            position: relative;
+            left: 50%;
+            top: 0;
+            margin-left: -55px;
+            width: 110px;
+            height: 37px;
+            background: url(images/navImg2.png)no-repeat 0 -120px;
+        }
+        .bodyCenter .formContent {
+            border: 1px solid #CDCDCD;
+            border-radius: 5px;
+            padding: 14px 18px;
+            margin-top: 10px;
+        }
+        .bodyCenter .formContent h1 {
+            font: 600 20px/40px "Microsoft YaHei";
+        }
+        .bodyCenter .formContent label {
+            font: 600 14px/16px "Microsoft YaHei";
+
+        }
+        .bodyCenter .formContent .input{
+            width: 252px;
+            height: 32px;
+            border: 1px solid #CDCDCD;
+            border-radius: 5px;
+            padding: 0 10px;
+            margin-bottom: 10px;
+            font: 500 14px/16px "Microsoft YaHei";
+        }
+        .bodyCenter .description1 {
+            margin: 15px 0;
+        }
+        .bodyCenter .formContent .submit{
+            width: 274px;
+            height: 32px;
+            border: 1px solid #CDCDCD;
+            border-radius: 5px;
+            text-align: center;
+            font: 500 14px/32px "Microsoft YaHei";
+            background-color: rgba(255,208,0,1);
+            cursor: pointer;
+            margin-bottom: 30px;
+        }
+        .bodyCenter .others{
+            width: 274px;
+            height: 1px;
+            background-color: #CDCDCD;
+            position: relative;
+        }
+        .bodyCenter .others .otherText {
+            width: 78px;
+            height: 12px;
+            font: 400 12px/12px "Microsoft YaHei";
+            text-align: center;
+            position: absolute;
+            left: 50%;
+            top: -6px;
+            margin-left: -39px;
+            background-color: white;
+        }
+        .bodyCenter .weiXin {
+            display: block;
+            width: 274px;
+            height: 30px;
+            background: url("images/weiXin.png")no-repeat top center;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .bodyCenter .fengexian {
+            width: 274px;
+            height: 3px;
+            background: linear-gradient(90deg, #FFFFFF,#CDCDCD,#FFFFFF);
+            margin-bottom: 20px;
+        }
+        .inputColor {
+            box-shadow: 0 0 2px 2px #FCA835;
+        }
+        .errorColor {
+            box-shadow: 0 0 0 2px red;
+        }
+        .bodyCenter .error {
+            width: 274px;
+            height: 14px;
+            font: 400 12px/14px "Microsoft YaHei";
+            color: #C81623;
+            display: none;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body onload="form1.username.focus()">
+<div class="bodyCenter">
+    <div class="titleImg"></div>
+    <div class="formContent">
+        <h1>创建账户</h1>
+        <form action="register.php" method="post" name="form1" id="register">
+            <label for="username">您的姓名</label><input type="text" id="username" class="input inputColor" name="username">
+            <p class="error" id="error1"></p>
+            <label for="telephone">手机号码</label><input type="text" id="telephone" class="input" name="telephone">
+            <p class="error" id="error2"></p>
+            <label for="email">邮箱地址</label><input type="email" id="email" class="input" name="email">
+            <p class="error" id="error3"></p>
+            <label for="password">密码</label><input type="password" id="password" class="input" name="password">
+            <p class="error" id="error"></p>
+            <div><input type="checkbox" id="agree"> &nbsp;我已阅读并同意网站的<a href="#">使用条件</a>及<a href="#">隐私声明</a></div>
+            <div class="description1">
+                <p>我们将向您发送短信验证您的手机。</p>
+                <p>可能收取消息和数据费用。</p>
+            </div>
+            <!--<div class="submit" id="submit">继续</div>-->
+            <input type="button" name="submit" class="submit" id="submit" value = "继续">
+            <div class="others">
+                <div class="otherText">其他注册方式</div>
+            </div>
+
+            <a href="#" class="weiXin"></a>
+            <div class="fengexian"></div>
+            <div class="local">已拥有账户？ <a href="login.html">登录</a></div>
+        </form>
+    </div>
+</div>
+<script src="js/jquery-3.1.0.min.js"></script>
+<script>
+    $(function () {
+        $(".input").bind("focus", function () {
+            $(this).addClass("inputColor");
+        });
+        $(".input").bind("blur", function () {
+            $(this).removeClass("inputColor");
+        });
+        $("#username").bind("blur", function () {
+            if( $(this).val()=="")
+            {
+                $(this).addClass("errorColor");
+                $(this).next().html("姓名不能为空！");
+                $(this).next().css("display","block");
+            }else {
+                yanZheng($(this).val(), "","","","#username", "该用户名已注册!") ;
+            }
+        });
+        $("#telephone").bind("blur", function () {
+            //手机号栏失去焦点
+            var reg = /^1[3|4|5|7|8][0-9]\d{4,8}$/i;//验证手机正则(输入前7位至11位)
+            if ($(this).val() == "") {
+                $(this).addClass("errorColor");
+                $(this).next().html("请输入您的手机号!");
+                $(this).next().css("display", "block");
+            }
+            else if ($(this).val().length < 11) {
+                $(this).addClass("errorColor");
+                $(this).next().html("手机号长度有误！");
+                $(this).next().css("display", "block");
+            }
+            else if (!reg.test($(this).val())) {
+                $(this).addClass("errorColor");
+                $(this).next().html("手机号不存在!");
+                $(this).next().css("display", "block");
+            }
+            else {
+                yanZheng("", "",$(this).val(), "","#telephone", "该手机号已注册!");
+            }
+        });
+        //邮箱验证
+        function isEmail(str){
+            var reg = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/;
+            return reg.test(str);
+        }
+        $("#email").bind("blur", function () {
+            if( $(this).val()=="")
+            {
+                $(this).addClass("errorColor");
+                $(this).next().html("邮箱不能为空！");
+                $(this).next().css("display","block");
+            }else if(!isEmail($(this).val())){
+                $(this).addClass("errorColor");
+                $(this).next().html("邮箱格式不正确！");
+                $(this).next().css("display","block");
+            }else{
+                yanZheng("", "","",$(this).val(),"#email", "该邮箱已注册!");
+            }
+        });
+        //密码栏失去焦点
+        $("#password").blur(function(){
+            reg=/^[\@A-Za-z0-9\!\#\$\%\^\&\*\.\~]{6,22}$/;
+            if( $(this).val()=="")
+            {
+                $(this).addClass("errorColor");
+                $(this).next().html("密码不能为空！");
+                $(this).next().css("display","block");
+                ISpssword = false;
+            } else if(!reg.test($(this).val()))
+            {
+                $(this).addClass("errorColor");
+                $(this).next().html("格式有误，请输入6~12位的数字、字母或特殊字符！");
+                $(this).next().css("display","block");
+            }
+            else
+            {
+                $(this).removeClass("errorColor");
+                $(this).next().empty();
+                $(this).next().css("display","none");
+            }
+        });
+        $('#submit').click(function () {
+            if(!($('#error1').text() + $('#error2').text() + $("#error3").text() + $("#error").text()) && $('#agree')[0].checked){
+                console.log("duile");
+                $.ajax({
+                    type: 'post',  //请求类型
+                    url: 'register.php',  //url地址
+                    async: true,
+                    data: {  //请求参数
+                        username: $('#username').val(),
+                        password: $('#password').val(),
+                        telephone: $('#telephone').val(),
+                        email: $('#email').val()
+                    },
+                    success: function (message) {
+                        console.log(message);
+                        if(message){
+                            window.location.href = "login.html";
+                        }   //成功时 在这里取得相应回来的数据
+                    }
+                })
+            }
+
+
+        });
+
+        //原生js 的Ajax封装
+        function yanZheng(username,password,telephone,email, element, contents ) {
+            //post请求
+            //01 创建xhr对象
+            var xhr;
+            if(window.XMLHttpRequest){
+                xhr = new XMLHttpRequest();
+            }else {
+                xhr = ActiveXObject("Microsoft.XMLHTTP");
+            }
+
+            //获取输入数据
+            var username = username;
+            var password = password;
+            var telephone = telephone;
+            var email = email;
+
+            //02 打开参数列表
+            xhr.open('post','register.php',true);
+
+            //03 发送请求
+            //设置请求头(application/x-www-form-urlencoded 来自 form表单的 enctype 属性)
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            //设置请求体
+            var paragrams = "username=" + username + "&password=" + password + "&telephone=" + telephone + "&email=" + email;
+
+            //发送请求时携带请求体，post 请求的请求参数 是藏在请求体里面被发送出去的，相对更安全
+            xhr.send(paragrams);
+
+            //04 判断状态码
+            xhr.onreadystatechange = function () {
+                if(xhr.readyState == 4 && xhr.status == 200){
+                    var data = xhr.responseText;
+                    if(data == true){
+//                        console.log(true);
+                        $(element).addClass("errorColor");
+                        $(element).next().html(contents);
+                        $(element).next().css("display","block");
+                    }else{
+//                        console.log(false);
+                        $(element).removeClass("errorColor");
+                        $(element).next().empty();
+                        $(element).next().css("display","none");
+                    }
+                }
+            }
+        }
+    })
+
+</script>
+</body>
+</html>

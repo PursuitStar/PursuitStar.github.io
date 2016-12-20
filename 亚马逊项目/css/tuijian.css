@@ -1,0 +1,471 @@
+/*与您浏览过的商品相关的推荐  标题设置开始*/
+.w {
+    width: 1550px;
+    margin: 0 20px;
+}
+.tj {
+    width: 1140px;
+}
+.tjTiltle {
+    height: 35px;
+    position: relative;
+    border-bottom: 1px solid #E5E5E5;
+}
+.tjTiltle .start-title {
+    position: absolute;
+    top: -1px;
+}
+.tjTiltle .start-title img {
+    width: 40px;
+    height: 35px;
+}
+.tjTiltle .title {
+    width: 980px;
+    font: 600 20px/35px "SimSun";
+    position: absolute;
+    left: 40px;
+
+    color: black;
+}
+/*推荐商品展示  设置开始*/
+.tj .tuijian {
+    width: 1140px;
+    padding: 0 18px;
+}
+.tj .tuijian ul {
+    width: 1128px;
+    height: 250px;
+    border-bottom: 1px solid #E5E5E5;
+}
+.tj .tuijian li {
+    width: 166px
+    height: 204px;
+    float: left;
+    padding: 22px 10px ;
+    position: relative;
+}
+.tj .tuijian .contentImg{
+    width: 150px;
+    height: 150px;
+}
+.tj .tuijian .box{
+    position: absolute;
+    background-color: rgba(255,255,255,0.9);
+    width: 208px;
+    height: 300px;
+    border: 1px solid #DCDCDC;
+    box-shadow: 0 2px 2px 1px;
+    z-index: 3;
+    font-size: 14px;
+    padding: 10px 0 0 20px;
+}
+.tj .tuijian .box1,.tj .tuijian .box2,.tj .tuijian .box3,.tj .tuijian .box4,.tj .tuijian .box5,.tj .tuijian .box6{
+    top: -40px;
+}
+.tj .tuijian .box7,.tj .tuijian .box8,.tj .tuijian .box9,.tj .tuijian .box10,.tj .tuijian .box11,.tj .tuijian .box12{
+    top: -50px;
+}
+.tj .tuijian .box1, .tj .tuijian .box7{
+    left: -20px;
+}
+.tj .tuijian .box2,.tj .tuijian .box8{
+    left: 142px;
+}
+.tj .tuijian .box3,.tj .tuijian .box9{
+    left: 292px;
+}
+.tj .tuijian .box4,.tj .tuijian .box10{
+    left: 450px;
+}
+.tj .tuijian .box5,.tj .tuijian .box11{
+    left: 620px;
+}
+.tj .tuijian .box6,.tj .tuijian .box12{
+    left: 790px;
+}
+.tj .tuijian .box{
+    display: none;
+}
+.tj .tuijian .box a{
+    display: inline-block;
+    /*margin: 5px 0 0 20px;*/
+    font-size: 16px;
+}
+.tj .tuijian .box .boxContent{
+    position: absolute;
+    left: 30px;
+    bottom: 48px;
+}
+.tj .tuijian .box .boxContent3,.tj .tuijian .box .boxContent4,.tj .tuijian .box .boxContent9,.tj .tuijian .box .boxContent10{
+    left: 40px;
+}
+.tj .tuijian .box .boxContent7,.tj .tuijian .box .boxContent8,.tj .tuijian .box .boxContent9,.tj .tuijian .box .boxContent10,.tj .tuijian .box .boxContent11,.tj .tuijian .box .boxContent12{
+    bottom: 36px;
+}
+.tj .tuijian .box .price,.tj .tuijian .box .price a{
+    display: inline-block;
+    font-size: 16px;
+}
+.tj .tuijian .content{
+    position: absolute;
+}
+.tj .tuijian .content1{
+    top: 22px;
+}
+.tj .tuijian .content1,.tj .tuijian .content7{
+    left: 15px;
+    z-index: 2;
+}
+.tj .tuijian .content2{
+    top: 22px;
+}
+.tj .tuijian .content2,.tj .tuijian .content8{
+    left: 175px;
+    z-index: 2;
+}
+.tj .tuijian .content3{
+    top: 22px;
+}
+.tj .tuijian .content3,.tj .tuijian .content9{
+    left: 335px;
+    z-index: 2;
+}
+.tj .tuijian .content4{
+    top: 22px;
+}
+.tj .tuijian .content4, .tj .tuijian .content10{
+    left: 495px;
+    z-index: 2;
+}
+.tj .tuijian .content5{
+    top: 22px;
+}
+.tj .tuijian .content5, .tj .tuijian .content11{
+    left: 655px;
+    z-index: 2;
+}
+.tj .tuijian .content6{
+    top: 22px;
+}
+.tj .tuijian .content6,.tj .tuijian .content12{
+    left: 815px;
+    z-index: 2;
+}
+.tj .tuijian .price {
+    width: 166px;
+    height: 42px;
+    text-align: center;
+    font-size: 14px;
+    padding-top: 10px;
+}
+.tj .tuijian .priceTj {
+    margin-bottom: 6px;
+}
+.tj .tuijian .maiman {
+    color: #FCB670;
+}
+.ms p {
+    margin: 14px 0 5px 0;
+    font: 700 20px/20px "SimSun";
+}
+
+.ms {
+    width: 1028px;
+}
+
+.shishims {
+    position: relative;
+    height: 54px;
+}
+
+/*秒杀头部部分设置*/
+.msTitle {
+    position: relative;
+    float: left;
+    border-bottom: 1px solid gainsboro;
+    width: 1140px;
+}
+
+.msTitle ul {
+    width: 417px;
+    height: 32px;
+    line-height: 32px;
+    margin-top: 8px;
+}
+
+.msTitle li {
+    float: left;
+    width: 84px;
+    height: 32px;
+    cursor: pointer;
+    font: 600 12px "SimSun";
+}
+
+.msTitle .line {
+    width: 60px;
+    height: 2px;
+    background-color: red;
+    position: absolute;
+    bottom: 0px;
+}
+
+.msTitle li a, .classifys a {
+    display: inline-block;
+    color: black;
+    line-height: 32px;
+}
+
+.fenlei a, .classifys b, .classifys a {
+    color: black;
+}
+
+.msTitle a:hover {
+    color: #E39C70;
+}
+
+.classifys {
+    position: absolute;
+    right: -50px;
+    top: 20px;
+}
+
+.classifys a:hover {
+    color: #E39C70;
+    text-decoration: underline;
+}
+
+.fenlei a:hover {
+    color: #E39C70;
+    text-decoration: underline;
+}
+
+.msTitle .activeLi {
+    color: #E39C70;
+}
+
+.shishims .fenlei {
+    width: 320px;
+    height: 342px;
+    padding: 10px;
+    position: absolute;
+    right: -111px;
+    top: 32px;
+    display: none;
+    border: 1px solid #CECECE;
+    z-index: 1111;
+    background-color: white;
+}
+
+.shishims .fenlei ul {
+    width: 160px;
+    height: 362px;
+    float: left;
+}
+
+.shishims .fenlei li {
+    width: 160px;
+    height: 20px;
+    line-height: 20px;
+}
+
+/*秒杀头部设置结束*/
+/*秒杀商品展示开始*/
+.shoopMiddel {
+    width: 1140px;
+    height: 358px;
+    position: relative;
+}
+
+.shopp-ing {
+    width: 1140px;
+    height: 358px;
+    position: relative;
+    border-bottom: 1px solid gainsboro;
+    overflow: hidden;
+}
+
+.shopp-ing ul {
+    width: 200%;
+    height: 286px;
+    position: absolute;
+    top: 15px;
+    left: 0;
+    padding: 16px 0 0 60px;
+}
+
+.shopp-ing .shop, .shopp-ing .shop2 {
+    width: 135px;
+    height: 235px;
+}
+
+.shopp-ing li {
+    width: 195px;
+    float: left;
+    padding-left: 20px;
+    position: relative;
+}
+
+.shopp-ing .shopImg {
+    margin-bottom: 15px
+}
+
+.msShopping .shopStar {
+    width: 132px;
+    height: 22px;
+    position: absolute;
+    top: 108px;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 8px 0 0 3px;
+    display: none;
+    cursor: pointer;
+}
+
+.shopp-ing .bg {
+    position: absolute;
+    z-index: 1000;
+    top: 50%;
+    margin-top: -30px;
+    width: 20px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.shopp-ing .bgLeft {
+    left: 0;
+    background: url("../images/shoveler-sprite..png") no-repeat 0 0;
+}
+
+.shopp-ing .bgRight {
+    right: 0;
+    background: url("../images/shoveler-sprite..png") no-repeat -20px 0;
+}
+
+.msShopping .shopPrice, .jsShopping .shopPrice {
+    font-size: 14px;
+    color: #B12704;
+}
+
+.msShopping .shopCart {
+    width: 134px;
+    height: 30px;
+    background-color: #F5D891;
+    border: 1px solid #A88734;
+    border-radius: 5px;
+    font-size: 12px;
+    text-align: center;
+    cursor: pointer;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: #4D442B;
+}
+
+.msShopping .bao, .jkShopping .bao {
+    width: 135px;
+    height: 30px;
+    font-size: 12px;
+    font-weight: 600;
+    position: relative;
+}
+
+.msShopping .bao .bfb {
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.msShopping .time {
+    font-size: 12px;
+    width: 135px;
+    margin-top: 8px;
+}
+
+.shopPage {
+    width: 1110px;
+    height: 35px;
+    text-align: center;
+    margin-top: 40px;
+    padding-right: 28px;
+}
+
+.shopPageRight {
+    float: right;
+}
+
+.shopPage a:hover {
+    color: #E39C70;
+    text-decoration: underline;
+}
+
+/*进度条*/
+.msShopping .scroll, .jkShopping .bao .scroll {
+    width: 135px;
+    height: 5px;
+    background-color: #CCCCCC;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.jsShopping .bao {
+    margin-top: 50px;
+}
+
+.msShopping .scroll .bar, .jsShopping .bao .scroll {
+    height: 5px;
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+}
+
+.jsShopping .bao .scroll {
+    top: 268px;
+}
+
+.msShopping .scroll .bar {
+    background-color: black;
+}
+
+.jsShopping .bao .scroll {
+    width: 135px;
+    background-color: #CCCCCC;
+}
+
+.msShopping .scroll .bar1 {
+    width: 34px;
+}
+
+.msShopping .scroll .bar2 {
+    width: 80px;
+}
+
+.msShopping .scroll .bar3 {
+    width: 54px;
+}
+
+.shopName:hover {
+    color: #E39C70;
+    text-decoration: underline;
+}
+
+.jsShopping .bfb {
+    color: red;
+    margin-bottom: 5px;
+}
+
+/*即将开始部分*/
+.msShopping {
+    display: block;
+    height: 375px;
+}
+
+.jsShopping, .jkShopping {
+    position: absolute;
+    top: 15px;
+    display: none;
+}
+
+.jkShopping .shopKaishi {
+    font-size: 18px;
+    color: black;
+}

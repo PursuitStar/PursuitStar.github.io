@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="images/FlappyBird.ico">
+    <title>flappybird</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #canvas{
+            /*align-content: center;*/
+            /*margin: 0 auto;*/
+            /*background-color: aqua;*/
+            left: 50%;
+            margin-left: -200px;
+            position: relative;
+        }
+    </style>
+    <script>
+        //1、界面元素相关的变量
+        // canvas context
+        // 定时器
+        // context 的宽高
+        // delta 高度 指小鸟的下降高度 水管运动的速度 按空格键跳的高度
+        // 水管随机的高度
+        // 积分
+        var context; //canvas的context属性
+        var cwidth = 400;
+        var cheight = 600;
+        var birds = ['images/0.gif','images/1.gif','images/2.gif']; //鸟图片
+        var birdIndex = 0; //鸟索引
+        var velocity = 8; // 水管移动速率
+        var pipe_space = 150; //水管之间的间距
+        var bird_gravity = 2; // 小鸟掉落的速率
+        var score = 0; //得分
+        var spaceKeyHeight = 80; //按键跳的高度
+        var isScore = false; //得分标记
+        var isOver = false; //游戏结束标记
+        var ver1 = 10; // 鸟速率控制
+        var ver2 = 0;
+        var tid; //定时器
+
+        //2、创建对应的对象
+        //背景
+        function Background(x,y,width,height,src) {
+            this.x = x;
+            this.y = y;
+            this.width = width;
+            this.height = height;
+            var image = new Image();
+            image.src = src;
+            this.image = image;
+            this.draw = bgDraw;
+        }
+        //背景绘制方法
+        function bgDraw() {
+            context.drawImage(this.image,this.x,this.y,this.width,this.height);
+        }
+        //上管道
+        function UpPipe(x,y,width,height,src) {
+            this.x = x;
+            this.y = y;
+            this.width = width;
+            this.height = height;
+            var image = new Image();
+            image.src = src;
+            this.image = image;
+            this.draw = drawUpPipe;
+        }
+
+        function drawUpPipe() {
+            context.drawImage(this.image,160,500,130,800,this.x,this.y,this.width,this.height);
+        }
+        //下管道
+        function DownPipe(x,y,width,height,src) {
+            this.x = x;
+            this.y = y;
+            this.width = width;
+            this.height = height;
+            var image = new Image();
+            image.src = src;
+            this.image = image;
+            this.draw = drawDownPipe;
+        }
+
+        function drawDownPipe() {
+            context.drawImage(this.image,10,500,130,800,this.x,this.y,this.width,this.height);
+        }
+        //小鸟
+        function Bird(x,y,width,height) {
+            this.x = x;
+            this.y = y;
+            this.width = width;
+            this.height = height;
+//            var image = new Image();
+//            image.src = src;
+//            this.image = image;
+            this.draw = drawBird;
+        }
+
+        function drawBird() {
+            birdIndex++;
+            var image = new Image();
+            image.src = birds[birdIndex % 3];
+            this.image = image;
+            context.drawImage(this.image,this.x,this.y,this.width,this.height);
+        }
+        //积分框
+        function ScoreBox(score,x,y) {
+            this.x = x;
+            this.y = y;
+            this.score = score;
+            this.draw = drawScore;
+        }
+        function drawScore() {
+            context.fillStyle = 'white';
+            context.font = '30px Wawati SC';
+            context.fillText("你得了" + this.score + '分',this.x,this.y);
+        }
+
+        var bg = new Background(0,0,400,600,'images/bg.png');
+        var ground = new Background(0,550,400,400,'images/ground.png');
+        var upPipe = new UpPipe(0,0,80,150,'images/pipe.png');
+        var downPipe = new DownPipe(0,400,80,155,'images/pipe.png');
+        var bird = new Bird(100,300,30,30);
+        var scoreBox = new ScoreBox(9999,100,100);
+        //3、游戏规则
+        //开始的规则
+            //界面加载的时候调用 用于获取canvas 并绘制界面元素
+            function init() {
+                var canvas = document.getElementById('canvas');
+                //不要忘了啊 是getcontex方法
+                context = canvas.getContext('2d');
+                document.onclick = reStart;
+                document.onkeyup = keyUp;
+                tid = setInterval(drawWall,80);
+
+            }
+        
+            //canvas 的绘制
+            function drawWall() {
+                //千万不要忘了这件事
+                context.clearRect(0,0,cwidth,cheight);
+                bg.draw();
+                ground.draw();
+                upPipe.draw();
+                downPipe.draw();
+                bird.draw();
+                calculator();
+            }
+
+            function calculator() {
+                //结束的规则 鸟撞到地面 撞到上下水管
+                var condition = (bird.y + bird.height) >= ground.y || (bird.x + bird.width >= upPipe.x && bird.x <= upPipe.x + 80 && bird.y <= upPipe.height) || (bird.x + bird.width >= downPipe.x && bird.x <= downPipe.x + 80 && bird.y + bird.height >= downPipe.y);
+                if (condition)
+                {
+                    // 鸟撞死了
+                    // 清除定时器
+                    clearInterval(tid);
+                    // 弹出分数
+                    scoreBox.score = score;
+                    scoreBox.draw();
+                    // 游戏标记停止
+                    isOver = true;
+                    return ;
+                }else {
+                    // 还活着
+                    if( isScore && bird.x >= upPipe.x + upPipe.width)
+                    {
+                        score++;
+                        //这里必须要写点什么
+                        if(score % 5 == 0 && score > 0)
+                        {
+                            velocity += 5;
+                            bird_gravity += 2;
+
+//                            var newUppipe = new UpPipe(upPipe.x + 50,0,80,100 + Math.random() * 200,'images/pipe.png');
+//                            var newDownPipe = new DownPipe(upPipe.x + 50,newUppipe.height + pipe_space,80,cheight - downPipe.y - 45,'images/pipe.png');
+//                            newUppipe.draw();
+//                            newDownPipe.draw();
+                        }
+                        isScore = false;
+                    }
+
+                }
+
+                ver2 = ver1 + bird_gravity;
+                bird.y += (ver1 + ver2) * 0.5;
+                if(upPipe.x + upPipe.width > 0)
+                {
+                    upPipe.x -= velocity;
+                    downPipe.x -= velocity;
+                }else{
+                    upPipe.x = cwidth;
+                    downPipe.x = cwidth;
+
+                    //水管的长度是随机的
+                    upPipe.height = 100 + Math.random() * 200;
+                    downPipe.y = upPipe.height + pipe_space;
+                    downPipe.height = cheight - downPipe.y - 45;
+
+                    isScore = true;
+                }
+
+                if(bird.y < 0)
+                {
+                    bird.y = 0;
+                }
+            }
+
+        //运动的规则
+            function keyUp(e) {
+                //获取键盘事件
+               var event = e || window.event;
+                var keycode = e.keyCode || e.charCode || e.which;
+                switch(keycode)
+                {
+                    case 32:
+                        bird.y -= spaceKeyHeight;
+                        break;
+                }
+            }
+            function reStart() {
+                if(isOver)
+                {
+                    isOver = false;
+                    window.location.reload();
+                }
+            }
+
+    </script>
+</head>
+<body onload="init()">
+
+<!--
+     1、创建基本的思路
+     2、分模块实现功能
+     3、补充代码
+     4、调试功能
+
+     1、分析
+     2、项目架构
+     3、具体功能模块
+     4、填充代码
+     5、测试结果
+     6、调试优化
+     7、内测 公测 推出正式版 版本更新
+
+     1、分析(界面元素分析 界面结构分析 设计模式分析。。。)
+     2、项目架构 (界面结构 行为模块逻辑结构 和服务器交互方式 数据保存模式。。。)
+     3、具体功能模块 html css js(页面元素 服务器数据 保存数据。。。)
+     4、填充代码 ->css js (根据前面设计API完成具体功能 分好的模块完成相应的功能模块)
+     5、测试结果 至少保证该版本是一个能运行的版本
+     6、调试优化 fixbug 修复bug 对界面当中一些交互不好的地方 进行更好的适配
+ -->
+<!--
+     1、分析
+     界面元素 背景 水管 鸟 地面 积分(当游戏结束的时候)
+     游戏规则
+     (1) 游戏运动条件 小鸟会重力下落 水管会水平向左移动 其他元素不动 按下空格键 小鸟上升
+     (2) 游戏死亡条件 小鸟碰到水管 落地 上边小鸟不会飞出去 游戏停止 所有运动元素静止 得分框弹出
+     (3) 游戏重新开始 点击界面 积分清零 运动元素重新开始 每过五个管道 加速
+     使用的技术
+     canvas 设计 js代码
+     2、项目架构
+-->
+
+<canvas id="canvas" width="400" height="600"></canvas>
+
+</body>
+</html>
